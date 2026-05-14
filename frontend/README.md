@@ -1,27 +1,77 @@
-# Frontend
+# Frontend — Login Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Angular 16 application for the Econocom technical challenge. Implements a login form connected to a Spring Boot JWT backend.
 
-## Development server
+## Tech Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 16.2.16
+- Angular Material 16.2.14
+- SCSS — BEM methodology + Atomic Design
+- Reactive Forms
+- HTTP Client with JWT interceptor
 
-## Code scaffolding
+## Project Structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+src/
+├── app/
+│   ├── auth/
+│   │   ├── login/              # Login component (form, styles, template)
+│   │   ├── models/             # LoginResponse and SsoResponse interfaces
+│   │   ├── auth.service.ts     # HTTP calls + JWT localStorage management
+│   │   ├── auth.guard.ts       # Route guard — redirects to /login if not authenticated
+│   │   └── auth.interceptor.ts # Adds Authorization: Bearer <token> to all requests
+│   ├── dashboard/              # Protected placeholder after login
+│   ├── app-routing.module.ts   # Routes: /login, /dashboard (guarded)
+│   └── app.module.ts
+├── assets/
+│   ├── figma-exports/          # Icons and logos from design
+│   ├── fonts/Lato/             # Lato Regular, Bold, Black
+│   └── scss/
+│       ├── 1-settings/         # Design tokens: colors, spacing, typography
+│       ├── 2-design-tokens/
+│       ├── 3-tools/            # SCSS mixins
+│       ├── 4-generic/          # Normalize and reset
+│       ├── 5-elements/
+│       ├── 6-skeleton/
+│       ├── 7-components/
+│       └── 8-utilities/
+└── styles.scss                 # Global styles and font declarations
+```
+
+## Routes
+
+| Route | Component | Protected |
+|---|---|---|
+| `/` | Redirects to `/login` | No |
+| `/login` | LoginComponent | No |
+| `/dashboard` | DashboardComponent | Yes (AuthGuard) |
+
+## Running locally
+
+```bash
+npm install
+ng serve
+```
+
+App available at `http://localhost:4200`. Requires backend running on `http://localhost:8080`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng build
+```
 
-## Running unit tests
+Output in `dist/frontend/`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authentication flow
 
-## Running end-to-end tests
+1. User submits email + password on `/login`
+2. `AuthService.login()` calls `POST /api/auth/login`
+3. JWT and refresh token stored in `localStorage`
+4. `AuthInterceptor` injects `Authorization: Bearer <token>` on every subsequent request
+5. `AuthGuard` protects `/dashboard` — redirects to `/login` if no token found
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## SSO flow
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clicking "ENTRAR CON SSO" calls `GET /api/auth/sso`, which simulates an SSO redirect and returns a JWT token.
