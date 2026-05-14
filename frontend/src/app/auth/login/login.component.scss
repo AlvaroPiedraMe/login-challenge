@@ -1,0 +1,175 @@
+@use '../../../../../technical-challenge/assets/scss/1-settings/variables' as v;
+
+:host {
+	display: block;
+	min-height: 100vh;
+	font-family: v.$font-stack;
+}
+
+.login {
+	align-items: center;
+	background: linear-gradient(180deg, v.$neutral-99 0%, v.$white 100%);
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+	padding: v.$spacing-l v.$spacing-m;
+
+	&__card {
+		background-color: v.$white;
+		border: 1px solid v.$neutral-90;
+		border-radius: v.$border-radius-l;
+		box-shadow: 0 16px 40px rgba(29, 27, 30, 0.08);
+		max-width: 420px;
+		padding: v.$spacing-xl v.$spacing-l;
+		width: 100%;
+	}
+
+	&__header {
+		text-align: center;
+	}
+
+	&__brand {
+		height: 38px;
+		margin-bottom: v.$spacing-l;
+	}
+
+	&__subtitle {
+		color: v.$neutral-40;
+		font-size: v.$font-m;
+		margin: 0 0 v.$spacing-l;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: v.$spacing-m;
+	}
+
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: v.$spacing-s;
+	}
+
+	&__label {
+		color: v.$neutral-20;
+		font-size: v.$font-s;
+		margin: 0;
+	}
+
+	&__input {
+		border: 1px solid v.$neutral-80;
+		border-radius: v.$border-radius-m;
+		color: v.$neutral-20;
+		font-family: v.$font-stack;
+		font-size: v.$font-m;
+		min-height: 48px;
+		padding: 0 v.$spacing-m;
+		width: 100%;
+
+		&:focus {
+			border-color: v.$secondary;
+			outline: none;
+		}
+	}
+
+	&__password {
+		position: relative;
+	}
+
+	&__input--password {
+		padding-right: 44px;
+	}
+
+	&__toggle {
+		align-items: center;
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		padding: 0;
+		position: absolute;
+		right: v.$spacing-m;
+		top: 0;
+		width: 20px;
+	}
+
+	&__toggle-icon {
+		height: 18px;
+		opacity: 0.7;
+		width: 18px;
+	}
+
+	&__button {
+		border: 0;
+		border-radius: v.$border-radius-m;
+		color: v.$white;
+		cursor: pointer;
+		font-family: v.$font-stack;
+		font-size: v.$font-s;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		min-height: 46px;
+		padding: 0 v.$spacing-m;
+		text-transform: uppercase;
+		width: 100%;
+
+		&--primary {
+			background-color: v.$primary;
+		}
+
+		&--secondary {
+			background-color: v.$secondary;
+		}
+	}
+
+	&__divider {
+		color: v.$neutral-40;
+		font-size: v.$font-s;
+		margin: v.$spacing-s 0 0;
+		text-align: center;
+	}
+
+	&__register {
+		color: v.$secondary;
+		cursor: pointer;
+		font-size: v.$font-s;
+		margin: v.$spacing-l 0 0;
+		text-align: center;
+	}
+
+	&__footer {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		margin-top: v.$spacing-xl;
+	}
+
+	&__language {
+		color: v.$neutral-40;
+		font-size: v.$font-xs;
+		margin: 0;
+	}
+
+	&__footer-logo {
+		height: 20px;
+		width: auto;
+	}
+}
+
+@media (max-width: 600px) {
+	.login {
+		padding: 0;
+
+		&__card {
+			border: 0;
+			border-radius: 0;
+			box-shadow: none;
+			max-width: none;
+			min-height: 100vh;
+			padding: v.$spacing-xxl v.$spacing-l v.$spacing-xl;
+		}
+	}
+}
