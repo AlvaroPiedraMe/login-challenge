@@ -1,1 +1,75 @@
-<p>login works!</p>
+<section class="login">
+	<div class="login__card">
+		<header class="login__header">
+			<img
+				class="login__brand"
+				src="assets/figma-exports/logo-rd.svg"
+				alt="realdooh"
+			/>
+			<p class="login__subtitle" i18n="@@login.subtitle">
+				Inicia sesion en tu cuenta
+			</p>
+		</header>
+
+		<form class="login__form" novalidate>
+			<div class="login__field">
+				<label class="login__label" for="email" i18n="@@login.email.label"
+					>Correo electronico</label
+				>
+				<input
+					id="email"
+					class="login__input"
+					type="email"
+					placeholder="Correo electronico"
+					i18n-placeholder="@@login.email.placeholder"
+				/>
+			</div>
+
+			<div class="login__field">
+				<label
+					class="login__label"
+					for="password"
+					i18n="@@login.password.label"
+					>Contrasena</label
+				>
+				<div class="login__password">
+					<input
+						id="password"
+						class="login__input login__input--password"
+						type="password"
+						placeholder="Contrasena"
+						i18n-placeholder="@@login.password.placeholder"
+					/>
+					<button class="login__toggle" type="button" aria-label="Show password">
+						<img
+							class="login__toggle-icon"
+							src="assets/figma-exports/eye-icon-password.png"
+							alt=""
+						/>
+					</button>
+				</div>
+			</div>
+
+			<button class="login__button login__button--primary" type="button" i18n="@@login.cta.primary">
+				ENTRAR
+			</button>
+
+			<p class="login__divider" i18n="@@login.divider">Otras formas de acceso:</p>
+
+			<button class="login__button login__button--secondary" type="button" i18n="@@login.cta.sso">
+				ENTRAR CON SSO
+			</button>
+		</form>
+
+		<p class="login__register" i18n="@@login.register">No tienes cuenta? Registrate</p>
+
+		<footer class="login__footer">
+			<p class="login__language" i18n="@@login.language">IDIOMA: ES</p>
+			<img
+				class="login__footer-logo"
+				src="assets/figma-exports/econocom-logo.svg"
+				alt="Econocom"
+			/>
+		</footer>
+	</div>
+</section>
