@@ -1,4 +1,4 @@
-@use '../../../../../technical-challenge/assets/scss/1-settings/variables' as v;
+@use '../../../assets/scss/1-settings/variables' as v;
 
 :host {
 	display: block;
@@ -34,9 +34,13 @@
 	}
 
 	&__subtitle {
-		color: v.$neutral-40;
-		font-size: v.$font-m;
+		color: v.$neutral-20;
+		font-family: v.$font-stack;
+		font-size: v.$font-l;
+		font-weight: 400;
+		line-height: 1.2;
 		margin: 0 0 v.$spacing-l;
+        margin-bottom: v.$spacing-s;
 	}
 
 	&__form {
@@ -49,11 +53,14 @@
 		display: flex;
 		flex-direction: column;
 		gap: v.$spacing-s;
+        margin-bottom: v.$spacing-s;
 	}
 
 	&__label {
 		color: v.$neutral-20;
+		font-family: v.$font-stack;
 		font-size: v.$font-s;
+		font-weight: 700;
 		margin: 0;
 	}
 
@@ -93,13 +100,13 @@
 		position: absolute;
 		right: v.$spacing-m;
 		top: 0;
-		width: 20px;
+		width: 24px;
 	}
 
 	&__toggle-icon {
-		height: 18px;
+		height: 36px;
 		opacity: 0.7;
-		width: 18px;
+		width: 25px;
 	}
 
 	&__button {
@@ -127,17 +134,25 @@
 
 	&__divider {
 		color: v.$neutral-40;
+		font-family: v.$font-stack;
 		font-size: v.$font-s;
+        font-weight: 700;
 		margin: v.$spacing-s 0 0;
 		text-align: center;
 	}
 
 	&__register {
-		color: v.$secondary;
-		cursor: pointer;
+		color: v.$neutral-20;
+		font-family: v.$font-stack;
 		font-size: v.$font-s;
 		margin: v.$spacing-l 0 0;
 		text-align: center;
+	}
+
+	&__register-link {
+		color: v.$primary;
+		cursor: pointer;
+		text-decoration: underline;
 	}
 
 	&__footer {
@@ -145,12 +160,41 @@
 		display: flex;
 		justify-content: space-between;
 		margin-top: v.$spacing-xl;
+		gap: v.$spacing-m;
 	}
 
 	&__language {
+		align-items: center;
 		color: v.$neutral-40;
+		display: flex;
+		font-family: v.$font-stack;
 		font-size: v.$font-xs;
+		gap: v.$spacing-xs;
 		margin: 0;
+		white-space: nowrap;
+	}
+
+	&__language-icon {
+		height: 16px;
+		width: 16px;
+	}
+
+	&__language-text,
+	&__language-code {
+		font-family: v.$font-stack;
+        font-weight: 700;
+	}
+
+	&__language-code {
+		color: v.$neutral-20;
+		font-weight: 700;
+	}
+
+	&__language-chevron {
+		height: 7px;
+		width: 12px;
+        margin-left: v.$spacing-xs;
+        margin-top: 2px;
 	}
 
 	&__footer-logo {

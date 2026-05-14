@@ -13,9 +13,6 @@
 
 		<form class="login__form" novalidate>
 			<div class="login__field">
-				<label class="login__label" for="email" i18n="@@login.email.label"
-					>Correo electronico</label
-				>
 				<input
 					id="email"
 					class="login__input"
@@ -26,12 +23,6 @@
 			</div>
 
 			<div class="login__field">
-				<label
-					class="login__label"
-					for="password"
-					i18n="@@login.password.label"
-					>Contrasena</label
-				>
 				<div class="login__password">
 					<input
 						id="password"
@@ -61,10 +52,25 @@
 			</button>
 		</form>
 
-		<p class="login__register" i18n="@@login.register">No tienes cuenta? Registrate</p>
+		<p class="login__register" i18n="@@login.register">
+			No tienes cuenta? <span class="login__register-link">Registrate</span>
+		</p>
 
 		<footer class="login__footer">
-			<p class="login__language" i18n="@@login.language">IDIOMA: ES</p>
+			<div class="login__language" i18n="@@login.language">
+				<img
+					class="login__language-icon"
+					src="assets/figma-exports/global-icon.png"
+					alt=""
+				/>
+				<span class="login__language-text">IDIOMA:</span>
+				<span class="login__language-code">ES</span>
+				<img
+					class="login__language-chevron"
+					src="assets/figma-exports/v-icon-left.png"
+					alt=""
+				/>
+			</div>
 			<img
 				class="login__footer-logo"
 				src="assets/figma-exports/econocom-logo.svg"
