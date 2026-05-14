@@ -109,6 +109,14 @@
 		width: 25px;
 	}
 
+	&__error {
+		color: v.$error;
+		font-family: v.$font-stack;
+		font-size: v.$font-s;
+		margin: 0;
+		text-align: center;
+	}
+
 	&__button {
 		border: 0;
 		border-radius: v.$border-radius-m;

@@ -1,0 +1,47 @@
+@use '../../assets/scss/1-settings/variables' as v;
+
+.dashboard {
+  align-items: center;
+  background: linear-gradient(180deg, v.$neutral-99 0%, v.$white 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+
+  &__card {
+    background-color: v.$white;
+    border: 1px solid v.$neutral-90;
+    border-radius: v.$border-radius-l;
+    box-shadow: 0 16px 40px rgba(29, 27, 30, 0.08);
+    padding: v.$spacing-xl v.$spacing-l;
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  &__title {
+    color: v.$neutral-20;
+    font-size: v.$font-l;
+    font-weight: 700;
+    margin: 0 0 v.$spacing-m;
+  }
+
+  &__text {
+    color: v.$neutral-40;
+    font-size: v.$font-m;
+    margin: 0 0 v.$spacing-xl;
+  }
+
+  &__logout {
+    background-color: v.$primary;
+    border: 0;
+    border-radius: v.$border-radius-m;
+    color: v.$white;
+    cursor: pointer;
+    font-size: v.$font-s;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    min-height: 46px;
+    padding: 0 v.$spacing-l;
+    text-transform: uppercase;
+  }
+}

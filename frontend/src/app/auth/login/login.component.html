@@ -11,12 +11,13 @@
 			</p>
 		</header>
 
-		<form class="login__form" novalidate>
+		<form class="login__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 			<div class="login__field">
 				<input
 					id="email"
 					class="login__input"
 					type="email"
+					formControlName="email"
 					placeholder="Correo electronico"
 					i18n-placeholder="@@login.email.placeholder"
 				/>
@@ -27,11 +28,17 @@
 					<input
 						id="password"
 						class="login__input login__input--password"
-						type="password"
+						[type]="showPassword ? 'text' : 'password'"
+						formControlName="password"
 						placeholder="Contrasena"
 						i18n-placeholder="@@login.password.placeholder"
 					/>
-					<button class="login__toggle" type="button" aria-label="Show password">
+					<button
+						class="login__toggle"
+						type="button"
+						(click)="togglePassword()"
+						aria-label="Show password"
+					>
 						<img
 							class="login__toggle-icon"
 							src="assets/figma-exports/eye-icon-password.png"
@@ -41,14 +48,27 @@
 				</div>
 			</div>
 
-			<button class="login__button login__button--primary" type="button" i18n="@@login.cta.primary">
-				ENTRAR
+			<p class="login__error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+			<button
+				class="login__button login__button--primary"
+				type="submit"
+				[disabled]="isLoading"
+				i18n="@@login.cta.primary"
+			>
+				{{ isLoading ? 'CARGANDO...' : 'ENTRAR' }}
 			</button>
 
 			<p class="login__divider" i18n="@@login.divider">Otras formas de acceso:</p>
 
-			<button class="login__button login__button--secondary" type="button" i18n="@@login.cta.sso">
-				ENTRAR CON SSO
+			<button
+				class="login__button login__button--secondary"
+				type="button"
+				(click)="onSsoLogin()"
+				[disabled]="isSsoLoading"
+				i18n="@@login.cta.sso"
+			>
+				{{ isSsoLoading ? 'CARGANDO...' : 'ENTRAR CON SSO' }}
 			</button>
 		</form>
 
