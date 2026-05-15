@@ -1,0 +1,28 @@
+{
+  "login": {
+    "subtitle": "Connectez-vous à votre compte",
+    "email": { "placeholder": "Adresse e-mail" },
+    "password": { "placeholder": "Mot de passe" },
+    "cta": {
+      "primary": "SE CONNECTER",
+      "sso": "SE CONNECTER AVEC SSO",
+      "loading": "CHARGEMENT..."
+    },
+    "divider": "Autres façons de se connecter :",
+    "register": "Pas encore de compte ?",
+    "register_link": "S'inscrire",
+    "language_label": "LANGUE :"
+  },
+  "dashboard": {
+    "title": "Bienvenue",
+    "logout": "SE DÉCONNECTER",
+    "role": {
+      "admin": "ADMIN",
+      "user": "UTILISATEUR"
+    }
+  },
+  "sso": {
+    "loading": "Vérification de l'authentification SSO...",
+    "error": "Erreur d'authentification SSO. Redirection..."
+  }
+}

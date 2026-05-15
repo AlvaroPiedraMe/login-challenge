@@ -1,0 +1,28 @@
+{
+  "login": {
+    "subtitle": "Sign in to your account",
+    "email": { "placeholder": "Email address" },
+    "password": { "placeholder": "Password" },
+    "cta": {
+      "primary": "SIGN IN",
+      "sso": "SIGN IN WITH SSO",
+      "loading": "LOADING..."
+    },
+    "divider": "Other ways to sign in:",
+    "register": "Don't have an account?",
+    "register_link": "Sign up",
+    "language_label": "LANGUAGE:"
+  },
+  "dashboard": {
+    "title": "Welcome",
+    "logout": "SIGN OUT",
+    "role": {
+      "admin": "ADMIN",
+      "user": "USER"
+    }
+  },
+  "sso": {
+    "loading": "Verifying SSO authentication...",
+    "error": "SSO authentication error. Redirecting..."
+  }
+}

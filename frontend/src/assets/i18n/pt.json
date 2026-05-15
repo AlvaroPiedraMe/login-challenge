@@ -1,0 +1,28 @@
+{
+  "login": {
+    "subtitle": "Inicie sessão na sua conta",
+    "email": { "placeholder": "Endereço de e-mail" },
+    "password": { "placeholder": "Palavra-passe" },
+    "cta": {
+      "primary": "ENTRAR",
+      "sso": "ENTRAR COM SSO",
+      "loading": "A CARREGAR..."
+    },
+    "divider": "Outras formas de acesso:",
+    "register": "Não tem conta?",
+    "register_link": "Registar",
+    "language_label": "IDIOMA:"
+  },
+  "dashboard": {
+    "title": "Bem-vindo",
+    "logout": "TERMINAR SESSÃO",
+    "role": {
+      "admin": "ADMIN",
+      "user": "UTILIZADOR"
+    }
+  },
+  "sso": {
+    "loading": "A verificar autenticação SSO...",
+    "error": "Erro na autenticação SSO. A redirecionar..."
+  }
+}
