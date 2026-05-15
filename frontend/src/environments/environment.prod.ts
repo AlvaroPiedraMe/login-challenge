@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'RENDER_BACKEND_URL/api/auth'
+  apiUrl: 'https://login-challenge-r2zg.onrender.com/api/auth'
 };
