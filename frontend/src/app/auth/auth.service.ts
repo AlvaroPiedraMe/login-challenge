@@ -42,8 +42,12 @@ export class AuthService {
     );
   }
 
-  ssoLogin(): Observable<SsoResponse> {
-    return this.http.get<SsoResponse>(`${API_URL}/sso`).pipe(
+  initiateSso(): void {
+    window.location.href = `${API_URL}/sso`;
+  }
+
+  handleSsoCallback(code: string): Observable<SsoResponse> {
+    return this.http.get<SsoResponse>(`${API_URL}/sso/callback`, { params: { code } }).pipe(
       tap(response => this.storeTokens(response.token, null))
     );
   }

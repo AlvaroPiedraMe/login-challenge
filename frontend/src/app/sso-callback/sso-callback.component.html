@@ -1,0 +1,10 @@
+<section class="sso-callback">
+  <div class="sso-callback__card">
+    <ng-container *ngIf="!errorMessage">
+      <p class="sso-callback__text">Verificando autenticacion SSO...</p>
+    </ng-container>
+    <ng-container *ngIf="errorMessage">
+      <p class="sso-callback__error">{{ errorMessage }}</p>
+    </ng-container>
+  </div>
+</section>

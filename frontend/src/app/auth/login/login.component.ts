@@ -43,17 +43,7 @@ export class LoginComponent {
   }
 
   onSsoLogin(): void {
-    if (this.isSsoLoading) return;
-    this.isSsoLoading = true;
-    this.errorMessage = '';
-
-    this.authService.ssoLogin().subscribe({
-      next: () => this.router.navigate(['/dashboard']),
-      error: (err) => {
-        this.errorMessage = err.error?.message ?? 'Error en el acceso SSO. Inténtalo de nuevo.';
-        this.isSsoLoading = false;
-      }
-    });
+    this.authService.initiateSso();
   }
 
   togglePassword(): void {

@@ -44,7 +44,7 @@ public class AuthController {
     @GetMapping("/sso")
     public ResponseEntity<Void> sso() {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/api/auth/sso/callback?code=SIMULATED_CODE");
+        headers.add("Location", "http://localhost:4200/sso/callback?code=SIMULATED_CODE");
         return new ResponseEntity<>(headers, HttpStatus.FOUND);
     }
 

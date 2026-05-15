@@ -1,0 +1,32 @@
+@use '../../assets/scss/1-settings/variables' as v;
+
+.sso-callback {
+  align-items: center;
+  background: linear-gradient(180deg, v.$neutral-99 0%, v.$white 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+
+  &__card {
+    background-color: v.$white;
+    border: 1px solid v.$neutral-90;
+    border-radius: v.$border-radius-l;
+    box-shadow: 0 16px 40px rgba(29, 27, 30, 0.08);
+    padding: v.$spacing-xl v.$spacing-l;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+  }
+
+  &__text {
+    color: v.$neutral-40;
+    font-size: v.$font-m;
+    margin: 0;
+  }
+
+  &__error {
+    color: v.$error;
+    font-size: v.$font-m;
+    margin: 0;
+  }
+}
