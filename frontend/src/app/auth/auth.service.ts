@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { LoginResponse } from './models/login-response.model';
 import { SsoResponse } from './models/sso-response.model';
+import { environment } from '../../environments/environment';
 
 export interface CurrentUser {
   email: string;
@@ -10,7 +11,7 @@ export interface CurrentUser {
   isAdmin: boolean;
 }
 
-const API_URL = 'http://localhost:8080/api/auth';
+const API_URL = environment.apiUrl;
 const TOKEN_KEY = 'auth_token';
 const REFRESH_TOKEN_KEY = 'auth_refresh_token';
 

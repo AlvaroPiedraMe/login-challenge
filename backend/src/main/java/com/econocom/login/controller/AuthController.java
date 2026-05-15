@@ -5,6 +5,7 @@ import com.econocom.login.dto.LoginResponse;
 import com.econocom.login.dto.SsoResponse;
 import com.econocom.login.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final AuthService authService;
+
+    @Value("${sso.redirect-url}")
+    private String ssoRedirectUrl;
 
     @Autowired
     public AuthController(AuthService authService) {
@@ -44,7 +48,7 @@ public class AuthController {
     @GetMapping("/sso")
     public ResponseEntity<Void> sso() {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "http://localhost:4200/sso/callback?code=SIMULATED_CODE");
+        headers.add("Location", ssoRedirectUrl + "?code=SIMULATED_CODE");
         return new ResponseEntity<>(headers, HttpStatus.FOUND);
     }
 
