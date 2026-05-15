@@ -17,6 +17,10 @@
 					type="email"
 					formControlName="email"
 					[placeholder]="'login.email.placeholder' | translate"
+					autocomplete="email"
+					autocorrect="off"
+					autocapitalize="none"
+					spellcheck="false"
 				/>
 			</div>
 
@@ -28,6 +32,10 @@
 						[type]="showPassword ? 'text' : 'password'"
 						formControlName="password"
 						[placeholder]="'login.password.placeholder' | translate"
+						autocomplete="current-password"
+						autocorrect="off"
+						autocapitalize="none"
+						spellcheck="false"
 					/>
 					<button
 						class="login__toggle"
