@@ -18,14 +18,31 @@
     max-width: 420px;
   }
 
+  &__role {
+    background-color: v.$secondary;
+    border-radius: v.$border-radius-s;
+    color: v.$white;
+    display: inline-block;
+    font-size: v.$font-xs;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: v.$spacing-m;
+    padding: v.$spacing-xs v.$spacing-m;
+    text-transform: uppercase;
+
+    &--admin {
+      background-color: v.$primary;
+    }
+  }
+
   &__title {
     color: v.$neutral-20;
     font-size: v.$font-l;
     font-weight: 700;
-    margin: 0 0 v.$spacing-m;
+    margin: 0 0 v.$spacing-s;
   }
 
-  &__text {
+  &__email {
     color: v.$neutral-40;
     font-size: v.$font-m;
     margin: 0 0 v.$spacing-xl;

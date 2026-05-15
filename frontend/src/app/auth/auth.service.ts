@@ -4,6 +4,12 @@ import { Observable, tap } from 'rxjs';
 import { LoginResponse } from './models/login-response.model';
 import { SsoResponse } from './models/sso-response.model';
 
+export interface CurrentUser {
+  email: string;
+  roles: string[];
+  isAdmin: boolean;
+}
+
 const API_URL = 'http://localhost:8080/api/auth';
 const TOKEN_KEY = 'auth_token';
 const REFRESH_TOKEN_KEY = 'auth_refresh_token';
@@ -12,6 +18,23 @@ const REFRESH_TOKEN_KEY = 'auth_refresh_token';
 export class AuthService {
 
   constructor(private http: HttpClient) {}
+
+  getCurrentUser(): CurrentUser | null {
+    const token = this.getToken();
+    if (!token) return null;
+    try {
+      const base64 = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      const payload = JSON.parse(atob(base64));
+      const roles: string[] = payload.roles ?? [];
+      return {
+        email: payload.sub,
+        roles,
+        isAdmin: roles.includes('ROLE_ADMIN')
+      };
+    } catch {
+      return null;
+    }
+  }
 
   login(email: string, password: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${API_URL}/login`, { email, password }).pipe(
