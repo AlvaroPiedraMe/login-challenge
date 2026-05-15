@@ -119,8 +119,10 @@ GET /api/auth/sso
 
 **Response (302 Found - Redirect):**
 ```
-Location: /api/auth/sso/callback?code=SIMULATED_CODE
+Location: http://localhost:4200/sso/callback?code=SIMULATED_CODE
 ```
+
+The backend redirects to the Angular frontend's `/sso/callback` route, which then calls the callback endpoint below to exchange the code for a JWT.
 
 ---
 
