@@ -6,9 +6,7 @@
 				src="assets/figma-exports/logo-rd.svg"
 				alt="realdooh"
 			/>
-			<p class="login__subtitle" i18n="@@login.subtitle">
-				Inicia sesion en tu cuenta
-			</p>
+			<p class="login__subtitle">{{ 'login.subtitle' | translate }}</p>
 		</header>
 
 		<form class="login__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
@@ -18,8 +16,7 @@
 					class="login__input"
 					type="email"
 					formControlName="email"
-					placeholder="Correo electronico"
-					i18n-placeholder="@@login.email.placeholder"
+					[placeholder]="'login.email.placeholder' | translate"
 				/>
 			</div>
 
@@ -30,8 +27,7 @@
 						class="login__input login__input--password"
 						[type]="showPassword ? 'text' : 'password'"
 						formControlName="password"
-						placeholder="Contrasena"
-						i18n-placeholder="@@login.password.placeholder"
+						[placeholder]="'login.password.placeholder' | translate"
 					/>
 					<button
 						class="login__toggle"
@@ -54,42 +50,57 @@
 				class="login__button login__button--primary"
 				type="submit"
 				[disabled]="isLoading"
-				i18n="@@login.cta.primary"
 			>
-				{{ isLoading ? 'CARGANDO...' : 'ENTRAR' }}
+				{{ isLoading ? ('login.cta.loading' | translate) : ('login.cta.primary' | translate) }}
 			</button>
 
-			<p class="login__divider" i18n="@@login.divider">Otras formas de acceso:</p>
+			<p class="login__divider">{{ 'login.divider' | translate }}</p>
 
 			<button
 				class="login__button login__button--secondary"
 				type="button"
 				(click)="onSsoLogin()"
 				[disabled]="isSsoLoading"
-				i18n="@@login.cta.sso"
 			>
-				{{ isSsoLoading ? 'CARGANDO...' : 'ENTRAR CON SSO' }}
+				{{ isSsoLoading ? ('login.cta.loading' | translate) : ('login.cta.sso' | translate) }}
 			</button>
 		</form>
 
-		<p class="login__register" i18n="@@login.register">
-			No tienes cuenta? <span class="login__register-link">Registrate</span>
+		<p class="login__register">
+			{{ 'login.register' | translate }}
+			<span class="login__register-link">{{ 'login.register_link' | translate }}</span>
 		</p>
 
 		<footer class="login__footer">
-			<div class="login__language" i18n="@@login.language">
+			<div class="login__language">
 				<img
 					class="login__language-icon"
 					src="assets/figma-exports/global-icon.png"
 					alt=""
 				/>
-				<span class="login__language-text">IDIOMA:</span>
-				<span class="login__language-code">ES</span>
-				<img
-					class="login__language-chevron"
-					src="assets/figma-exports/v-icon-left.png"
-					alt=""
-				/>
+				<span class="login__language-text">{{ 'login.language_label' | translate }}</span>
+				<span class="login__language-code">{{ languageService.getCurrent().label }}</span>
+				<button
+					class="login__language-toggle"
+					type="button"
+					(click)="toggleDropdown()"
+					[class.login__language-toggle--open]="dropdownOpen"
+				>
+					<img
+						class="login__language-chevron"
+						src="assets/figma-exports/v-icon-left.png"
+						alt=""
+					/>
+				</button>
+				<ul class="login__language-dropdown" *ngIf="dropdownOpen">
+					<li
+						*ngFor="let lang of languageService.getAvailable()"
+						class="login__language-option"
+						(click)="selectLanguage(lang)"
+					>
+						{{ lang.label }}
+					</li>
+				</ul>
 			</div>
 			<img
 				class="login__footer-logo"

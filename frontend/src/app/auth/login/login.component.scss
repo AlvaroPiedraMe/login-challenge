@@ -179,6 +179,7 @@
 		font-size: v.$font-xs;
 		gap: v.$spacing-xs;
 		margin: 0;
+		position: relative;
 		white-space: nowrap;
 	}
 
@@ -190,7 +191,7 @@
 	&__language-text,
 	&__language-code {
 		font-family: v.$font-stack;
-        font-weight: 700;
+		font-weight: 700;
 	}
 
 	&__language-code {
@@ -198,11 +199,52 @@
 		font-weight: 700;
 	}
 
+	&__language-toggle {
+		align-items: center;
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+		display: flex;
+		padding: 0;
+
+		&--open .login__language-chevron {
+			transform: rotate(180deg);
+		}
+	}
+
 	&__language-chevron {
 		height: 7px;
+		margin-top: 2px;
+		transition: transform 0.2s ease;
 		width: 12px;
-        margin-left: v.$spacing-xs;
-        margin-top: 2px;
+	}
+
+	&__language-dropdown {
+		background-color: v.$white;
+		border: 1px solid v.$neutral-90;
+		border-radius: v.$border-radius-m;
+		bottom: calc(100% + v.$spacing-xs);
+		box-shadow: 0 4px 12px rgba(29, 27, 30, 0.12);
+		left: 0;
+		list-style: none;
+		margin: 0;
+		padding: v.$spacing-xs 0;
+		position: absolute;
+		z-index: 100;
+	}
+
+	&__language-option {
+		color: v.$neutral-20;
+		cursor: pointer;
+		font-size: v.$font-xs;
+		font-weight: 700;
+		padding: v.$spacing-xs v.$spacing-m;
+		text-align: center;
+
+		&:hover {
+			background-color: v.$neutral-99;
+			color: v.$primary;
+		}
 	}
 
 	&__footer-logo {

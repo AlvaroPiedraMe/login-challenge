@@ -1,10 +1,10 @@
 <section class="dashboard">
   <div class="dashboard__card">
     <span class="dashboard__role" [class.dashboard__role--admin]="user?.isAdmin">
-      {{ user?.isAdmin ? 'ADMIN' : 'USUARIO' }}
+      {{ user?.isAdmin ? ('dashboard.role.admin' | translate) : ('dashboard.role.user' | translate) }}
     </span>
-    <h1 class="dashboard__title">Bienvenido</h1>
+    <h1 class="dashboard__title">{{ 'dashboard.title' | translate }}</h1>
     <p class="dashboard__email">{{ user?.email }}</p>
-    <button class="dashboard__logout" (click)="logout()">Cerrar sesion</button>
+    <button class="dashboard__logout" (click)="logout()">{{ 'dashboard.logout' | translate }}</button>
   </div>
 </section>

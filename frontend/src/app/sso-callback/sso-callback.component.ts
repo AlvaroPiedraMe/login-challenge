@@ -20,14 +20,14 @@ export class SsoCallbackComponent implements OnInit {
   ngOnInit(): void {
     const code = this.route.snapshot.queryParamMap.get('code');
     if (!code) {
-      this.errorMessage = 'Codigo SSO no encontrado.';
+      this.errorMessage = 'sso.error';
       return;
     }
 
     this.authService.handleSsoCallback(code).subscribe({
       next: () => this.router.navigate(['/dashboard']),
       error: () => {
-        this.errorMessage = 'Error en la autenticacion SSO. Redirigiendo...';
+        this.errorMessage = 'sso.error';
         setTimeout(() => this.router.navigate(['/login']), 2000);
       }
     });
