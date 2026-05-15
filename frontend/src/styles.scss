@@ -4,13 +4,6 @@
 /* Font Imports */
 @font-face {
 	font-family: 'Lato';
-	src: url('/assets/fonts/Lato/Lato-Light.ttf') format('truetype');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Lato';
 	src: url('/assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
@@ -20,6 +13,13 @@
 	font-family: 'Lato';
 	src: url('/assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
 	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lato';
+	src: url('/assets/fonts/Lato/Lato-Black.ttf') format('truetype');
+	font-weight: 900;
 	font-style: normal;
 }
 
@@ -34,10 +34,24 @@ body {
 	height: 100%;
 	width: 100%;
 	font-family: v.$font-stack;
+	font-weight: 400;
 	background-color: v.$background-primary;
 	color: v.$neutral-10;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography hierarchy using Lato variants */
+h1 {
+	font-weight: 900; /* Lato Black */
+}
+
+h2, h3 {
+	font-weight: 700; /* Lato Bold */
+}
+
+button {
+	font-weight: 700; /* Lato Bold */
 }
 
 app-root {
